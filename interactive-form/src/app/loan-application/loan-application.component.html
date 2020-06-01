@@ -1,0 +1,37 @@
+<form [formGroup]="loanApplicationForm">
+  <mat-label>Paskolos suma</mat-label>
+  <mat-slider
+    class="slider"
+    [max]="MAX_LOAN_AMOUNT"
+    [min]="MIN_LOAN_AMOUNT"
+    [thumbLabel]="THUMB_LABEL"
+    [(ngModel)]="loanAmount"
+    [ngModelOptions]="{standalone: true}">
+  </mat-slider>
+  <mat-label>Paskolos terminas</mat-label>
+  <mat-slider
+    class="slider"
+    [max]="MAX_LOAN_DURATION"
+    [min]="MIN_LOAN_DURATION"
+    [thumbLabel]="THUMB_LABEL"
+    [(ngModel)]="loanDuration"
+    [ngModelOptions]="{standalone: true}">
+  </mat-slider>
+
+  <mat-label>Paskolos ir palūkanų mokėjimo diena</mat-label>
+  <mat-form-field>
+    <mat-select>
+      <mat-option *ngFor="let paymentDay of paymentDays" [value]="paymentDay">
+        {{paymentDay}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <h2>Pajamos ir įsipareigojimai</h2>
+  <mat-label>Mėnesinis atlyginimas atskaičius mokesčius</mat-label>
+  <mat-form-field>
+    <input matInput name="net-salary" formControlName="netSalary" required>
+    <mat-hint
+      align="end">{{loanApplicationForm.controls.netSalary.value.length}} / {{MAX_NET_SALARY}}</mat-hint>
+  </mat-form-field>
+</form>

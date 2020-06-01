@@ -12,6 +12,10 @@ export class GeneralInformationComponent implements OnInit {
 
   generalInformationForm: FormGroup;
 
+  readonly MAXIMUM_NAME_LENGTH = 32;
+  readonly MAXIMUM_LAST_NAME_LENGTH = 32;
+  readonly PID_LENGTH = 11;
+
   constructor(private formBuilder: FormBuilder) {
   }
 
@@ -22,9 +26,11 @@ export class GeneralInformationComponent implements OnInit {
 
   initGeneralInformationControls() {
     this.generalInformationForm.addControl('name', this.formBuilder.control('',
-      [Validators.maxLength(16), Validators.required]));
+      [Validators.maxLength(this.MAXIMUM_NAME_LENGTH), Validators.required]));
     this.generalInformationForm.addControl('lastName', this.formBuilder.control('',
-      [Validators.maxLength(16), Validators.required]));
+      [Validators.maxLength(this.MAXIMUM_LAST_NAME_LENGTH), Validators.required]));
+    this.generalInformationForm.addControl('pid', this.formBuilder.control('',
+      [Validators.maxLength(this.PID_LENGTH), Validators.minLength(this.PID_LENGTH), Validators.required]));
   }
 
 }

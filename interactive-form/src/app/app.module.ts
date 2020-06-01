@@ -1,23 +1,29 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { FormComponent } from './form/form.component';
+import {FormComponent} from './form/form.component';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatStepperModule } from '@angular/material/stepper';
-import { GeneralInformationComponent } from './general-information/general-information.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatStepperModule} from '@angular/material/stepper';
+import {GeneralInformationComponent} from './general-information/general-information.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AdditionalInformationComponent} from './additional-information/additional-information.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
+import {LoanApplicationComponent} from './loan-application/loan-application.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    GeneralInformationComponent
+    GeneralInformationComponent,
+    AdditionalInformationComponent,
+    LoanApplicationComponent
   ],
   imports: [
     BrowserModule,
@@ -27,9 +33,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatStepperModule,
     MatButtonModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatTableModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

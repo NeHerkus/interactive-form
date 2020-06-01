@@ -1,0 +1,54 @@
+<form [formGroup]="additionalInformationForm">
+  <h1>Papildomi duomenys</h1>
+  <mat-label>Išsilavinimas</mat-label>
+  <mat-form-field>
+    <mat-select>
+      <mat-option *ngFor="let education of educations" [value]="education.value">
+        {{education.value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-label>Užimamos pareigos</mat-label>
+  <mat-form-field>
+    <mat-select>
+      <mat-option *ngFor="let positionHeld of positions" [value]="positionHeld.value">
+        {{positionHeld.value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-label>Veiklos sritis</mat-label>
+  <mat-form-field>
+    <mat-select>
+      <mat-option *ngFor="let field of fields" [value]="field.value">
+        {{field.value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <h1>Asmeniniai duomenys</h1>
+  <mat-label>Darbo sutarties tipas</mat-label>
+  <mat-form-field>
+    <mat-select>
+      <mat-option *ngFor="let employmentContractType of employmentContractTypes" [value]="employmentContractType.value">
+        {{employmentContractType.value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-label>Šeimyninė padėtis</mat-label>
+  <mat-form-field>
+    <mat-select>
+      <mat-option *ngFor="let maritalStatus of maritalStatuses" [value]="maritalStatus.value">
+        {{maritalStatus.value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <h1>Kontaktiniai duomenys</h1>
+  <mat-label>Telefonas</mat-label>
+  <mat-form-field>
+    <input matInput name="phone" formControlName="phone" required>
+  </mat-form-field>
+</form>
