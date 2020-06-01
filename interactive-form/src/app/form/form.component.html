@@ -1,0 +1,20 @@
+<div class="form-container">
+  <form [formGroup]="applicationForm">
+    <mat-horizontal-stepper labelPosition="bottom" linear #stepper>
+
+      <mat-step [stepControl]="getGeneralInformationForm">
+        <ng-template matStepLabel>Add general information</ng-template>
+        <app-general-information [parentForm]="applicationForm" required></app-general-information>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Step2</ng-template>
+        Step2
+      </mat-step>
+    </mat-horizontal-stepper>
+  </form>
+  <button mat-button (click)="displayFormData()">Display form data</button>
+</div>

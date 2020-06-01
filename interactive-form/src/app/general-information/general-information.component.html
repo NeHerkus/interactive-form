@@ -1,0 +1,10 @@
+<form [formGroup]="generalInformationForm">
+  <mat-form-field>
+    <input matInput placeholder="Name" name="name" formControlName="name" required>
+    <mat-hint align="end">{{generalInformationForm.controls.name.value.length}} / 16</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Last name" name="last-name" formControlName="lastName" required>
+  </mat-form-field>
+</form>
