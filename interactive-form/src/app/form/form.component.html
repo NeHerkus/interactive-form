@@ -2,7 +2,7 @@
   <form [formGroup]="applicationForm">
     <mat-horizontal-stepper labelPosition="bottom" linear #stepper>
 
-      <mat-step [stepControl]="getGeneralInformationForm">
+      <mat-step [stepControl]="generalInformationForm">
         <ng-template matStepLabel>Bendra informacija</ng-template>
         <app-general-information [parentForm]="applicationForm" required></app-general-information>
         <div>
@@ -14,6 +14,7 @@
         <ng-template matStepLabel>Paraiška</ng-template>
         <app-loan-application [parentForm]="applicationForm" required></app-loan-application>
         <div>
+          <button mat-button matStepperPrevious>Atgal</button>
           <button mat-button matStepperNext>Kitas</button>
         </div>
       </mat-step>
@@ -22,6 +23,7 @@
         <ng-template matStepLabel>Papildoma informacija</ng-template>
         <app-additional-information [parentForm]="applicationForm" required></app-additional-information>
         <div>
+          <button mat-button matStepperPrevious>Atgal</button>
           <button mat-button matStepperNext>Kitas</button>
         </div>
       </mat-step>

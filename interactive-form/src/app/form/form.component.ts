@@ -27,8 +27,12 @@ export class FormComponent implements OnInit {
     });
   }
 
-  async getGeneralInformationForm() {
-    return this.generalInformationComponent.generalInformationForm;
+  get generalInformationForm() {
+    console.log('now');
+    const a = this.generalInformationComponent;
+    if (a !== undefined) {
+      return a.generalInformationForm;
+    }
   }
 
   async getAdditionalInformationForm() {
