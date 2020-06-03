@@ -14,4 +14,4 @@ Angular reactive form project
 ##Launching
 - In project root folder run ```npm install```
 - In project root folder run ```ng serve```
-- Open localhost:4200 on your browser.
+- Open ```localhost:4200``` on your browser.
