@@ -1,33 +1,40 @@
 <div class="form-container">
-  <form [formGroup]="applicationForm">
-    <mat-horizontal-stepper labelPosition="bottom" linear #stepper>
+  <mat-horizontal-stepper labelPosition="bottom" linear #stepper>
 
-      <mat-step [stepControl]="generalInformationForm">
-        <ng-template matStepLabel>Bendra informacija</ng-template>
-        <app-general-information [parentForm]="applicationForm" required></app-general-information>
-        <div>
-          <button mat-button matStepperNext>Kitas</button>
-        </div>
-      </mat-step>
+    <mat-step [stepControl]="generalInformationForm">
+      <ng-template matStepLabel>Bendra informacija</ng-template>
+      <app-general-information></app-general-information>
+      <div>
+        <button mat-button matStepperNext>Kitas</button>
+      </div>
+    </mat-step>
 
-      <mat-step [stepControl]="getLoanApplicationForm">
-        <ng-template matStepLabel>Paraiška</ng-template>
-        <app-loan-application [parentForm]="applicationForm" required></app-loan-application>
+    <mat-step [stepControl]="loanApplicationForm">
+      <ng-template matStepLabel>Paraiška</ng-template>
+      <app-loan-application></app-loan-application>
+      <div>
+        <button mat-button matStepperPrevious>Atgal</button>
+        <button mat-button matStepperNext>Kitas</button>
+      </div>
+    </mat-step>
+
+    <mat-step [stepControl]="additionalInformationForm">
+      <ng-template matStepLabel>Papildoma informacija</ng-template>
+      <app-additional-information></app-additional-information>
+      <div>
+        <button mat-button matStepperPrevious>Atgal</button>
+        <button mat-button matStepperNext (click)="buildApplicationTO()">Kitas</button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <div *ngIf="applicationTO !== undefined">
+        <ng-template matStepLabel>Santrauka</ng-template>
+        <app-summary [applicationData]="applicationTO"></app-summary>
         <div>
           <button mat-button matStepperPrevious>Atgal</button>
-          <button mat-button matStepperNext>Kitas</button>
         </div>
-      </mat-step>
-
-      <mat-step [stepControl]="getAdditionalInformationForm">
-        <ng-template matStepLabel>Papildoma informacija</ng-template>
-        <app-additional-information [parentForm]="applicationForm" required></app-additional-information>
-        <div>
-          <button mat-button matStepperPrevious>Atgal</button>
-          <button mat-button matStepperNext>Kitas</button>
-        </div>
-      </mat-step>
-    </mat-horizontal-stepper>
-  </form>
-  <button mat-button (click)="displayFormData()">Display form data</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
 </div>

@@ -1,0 +1,5 @@
+<h1>Santrauka</h1>
+<div *ngFor="let columnName of filterShownData(columns)">
+  <p>{{filterProperties(columnName)}}</p>
+  <p>{{application[columnName]}}</p>
+</div>

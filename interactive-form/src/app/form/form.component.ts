@@ -1,8 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {GeneralInformationComponent} from '../general-information/general-information.component';
-import {FormBuilder, FormGroup, FormGroupDirective, Validators} from '@angular/forms';
+import {FormGroupDirective} from '@angular/forms';
 import {AdditionalInformationComponent} from '../additional-information/additional-information.component';
 import {LoanApplicationComponent} from '../loan-application/loan-application.component';
+import {Application} from '../shared/application';
 
 @Component({
   selector: 'app-form',
@@ -16,36 +17,38 @@ export class FormComponent implements OnInit {
   @ViewChild(AdditionalInformationComponent) additionalInformationComponent: AdditionalInformationComponent;
   @ViewChild(LoanApplicationComponent) loanApplicationComponent: LoanApplicationComponent;
 
-  applicationForm: FormGroup;
+  @Output() sendData: EventEmitter<any> = new EventEmitter();
 
-  constructor(private formBuilder: FormBuilder) {
+  applicationTO: Application;
+
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.applicationForm = this.formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
   }
 
   get generalInformationForm() {
-    console.log('now');
-    const a = this.generalInformationComponent;
-    if (a !== undefined) {
-      return a.generalInformationForm;
+    if (this.generalInformationComponent !== undefined) {
+      return this.generalInformationComponent.generalInformationForm;
     }
   }
 
-  async getAdditionalInformationForm() {
-    return this.additionalInformationComponent.additionalInformationForm;
+  get additionalInformationForm() {
+    if (this.additionalInformationComponent !== undefined) {
+      return this.additionalInformationComponent.additionalInformationForm;
+    }
   }
 
-  async getLoanApplicationForm() {
-    return this.loanApplicationComponent.loanApplicationForm;
+  get loanApplicationForm() {
+    if (this.loanApplicationComponent !== undefined) {
+      return this.loanApplicationComponent.loanApplicationForm;
+    }
   }
 
-  displayFormData() {
-    console.log(this.generalInformationComponent.generalInformationForm);
-    console.log(this.additionalInformationComponent.additionalInformationForm);
-    console.log(this.loanApplicationComponent.loanApplicationForm);
+  buildApplicationTO() {
+    this.applicationTO = Object.assign(this.generalInformationComponent.generalInformationForm.value,
+      this.loanApplicationComponent.loanApplicationForm.value,
+      this.additionalInformationComponent.additionalInformationForm.value);
+    this.sendData.emit(this.applicationTO);
   }
 }

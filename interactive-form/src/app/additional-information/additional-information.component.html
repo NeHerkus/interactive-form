@@ -1,28 +1,38 @@
 <form [formGroup]="additionalInformationForm">
   <h1>Papildomi duomenys</h1>
+
   <mat-label>Išsilavinimas</mat-label>
   <mat-form-field>
-    <mat-select>
-      <mat-option *ngFor="let education of educations" [value]="education.value">
-        {{education.value}}
+    <mat-select formControlName="education" required>
+      <mat-option *ngFor="let education of educations" [value]="education">
+        {{education}}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-label>Užimamos pareigos</mat-label>
   <mat-form-field>
-    <mat-select>
-      <mat-option *ngFor="let positionHeld of positions" [value]="positionHeld.value">
-        {{positionHeld.value}}
+    <mat-select formControlName="position" required>
+      <mat-option *ngFor="let positionHeld of positions" [value]="positionHeld">
+        {{positionHeld}}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-label>Veiklos sritis</mat-label>
   <mat-form-field>
-    <mat-select>
-      <mat-option *ngFor="let field of fields" [value]="field.value">
-        {{field.value}}
+    <mat-select formControlName="field" required>
+      <mat-option *ngFor="let field of fields" [value]="field">
+        {{field}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-label>Darbo trukmė</mat-label>
+  <mat-form-field>
+    <mat-select formControlName="employmentDuration" required>
+      <mat-option *ngFor="let employmentDuration of employmentDurations" [value]="employmentDuration">
+        {{employmentDuration}}
       </mat-option>
     </mat-select>
   </mat-form-field>
@@ -30,18 +40,18 @@
   <h1>Asmeniniai duomenys</h1>
   <mat-label>Darbo sutarties tipas</mat-label>
   <mat-form-field>
-    <mat-select>
-      <mat-option *ngFor="let employmentContractType of employmentContractTypes" [value]="employmentContractType.value">
-        {{employmentContractType.value}}
+    <mat-select formControlName="employmentContractType" required>
+      <mat-option *ngFor="let employmentContractType of employmentContractTypes" [value]="employmentContractType">
+        {{employmentContractType}}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-label>Šeimyninė padėtis</mat-label>
   <mat-form-field>
-    <mat-select>
-      <mat-option *ngFor="let maritalStatus of maritalStatuses" [value]="maritalStatus.value">
-        {{maritalStatus.value}}
+    <mat-select formControlName="maritalStatus" required>
+      <mat-option *ngFor="let maritalStatus of maritalStatuses" [value]="maritalStatus">
+        {{maritalStatus}}
       </mat-option>
     </mat-select>
   </mat-form-field>

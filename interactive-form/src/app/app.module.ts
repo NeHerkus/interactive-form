@@ -16,6 +16,8 @@ import {AdditionalInformationComponent} from './additional-information/additiona
 import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
 import {LoanApplicationComponent} from './loan-application/loan-application.component';
+import {IntroPageComponent} from './intro-page/intro-page.component';
+import {SummaryComponent} from './summary/summary.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {LoanApplicationComponent} from './loan-application/loan-application.comp
     FormComponent,
     GeneralInformationComponent,
     AdditionalInformationComponent,
-    LoanApplicationComponent
+    LoanApplicationComponent,
+    IntroPageComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
