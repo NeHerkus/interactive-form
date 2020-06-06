@@ -11,7 +11,7 @@ Angular reactive form project
 - The summary should contain the answers to all the questions. :x:
 - The design must be responsive. :x:
 
-##Launching
+## Launching
 - In project root folder run ```npm install```
 - IN project root folder run ```ng serve```
 - Open localhost:4200 on your browser.
