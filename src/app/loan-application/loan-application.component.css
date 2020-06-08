@@ -61,9 +61,6 @@ mat-slider {
 
 
 @media only screen and (max-width: 320px) {
-  .slider-container {
-  }
-
   .loan-amount-container {
     flex-direction: column;
   }

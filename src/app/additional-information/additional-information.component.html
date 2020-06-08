@@ -1,64 +1,81 @@
 <form [formGroup]="additionalInformationForm">
   <h1>Papildomi duomenys</h1>
+  <div class="info-container">
+    <div class="input-container">
+      <mat-label class="label">Išsilavinimas</mat-label>
+      <mat-form-field class="input">
+        <mat-select formControlName="education" required>
+          <mat-option *ngFor="let education of educations" [value]="education">
+            {{education}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
 
-  <mat-label>Išsilavinimas</mat-label>
-  <mat-form-field>
-    <mat-select formControlName="education" required>
-      <mat-option *ngFor="let education of educations" [value]="education">
-        {{education}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <div class="input-container">
+      <mat-label class="label">Užimamos pareigos</mat-label>
+      <mat-form-field class="input">
+        <mat-select formControlName="position" required>
+          <mat-option *ngFor="let positionHeld of positions" [value]="positionHeld">
+            {{positionHeld}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
 
-  <mat-label>Užimamos pareigos</mat-label>
-  <mat-form-field>
-    <mat-select formControlName="position" required>
-      <mat-option *ngFor="let positionHeld of positions" [value]="positionHeld">
-        {{positionHeld}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <div class="input-container">
+      <mat-label class="label">Veiklos sritis</mat-label>
+      <mat-form-field class="input">
+        <mat-select formControlName="field" required>
+          <mat-option *ngFor="let field of fields" [value]="field">
+            {{field}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
 
-  <mat-label>Veiklos sritis</mat-label>
-  <mat-form-field>
-    <mat-select formControlName="field" required>
-      <mat-option *ngFor="let field of fields" [value]="field">
-        {{field}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-label>Darbo trukmė</mat-label>
-  <mat-form-field>
-    <mat-select formControlName="employmentDuration" required>
-      <mat-option *ngFor="let employmentDuration of employmentDurations" [value]="employmentDuration">
-        {{employmentDuration}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <div class="input-container">
+      <mat-label class="label">Darbo trukmė</mat-label>
+      <mat-form-field class="input">
+        <mat-select formControlName="employmentDuration" required>
+          <mat-option *ngFor="let employmentDuration of employmentDurations" [value]="employmentDuration">
+            {{employmentDuration}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
 
   <h1>Asmeniniai duomenys</h1>
-  <mat-label>Darbo sutarties tipas</mat-label>
-  <mat-form-field>
-    <mat-select formControlName="employmentContractType" required>
-      <mat-option *ngFor="let employmentContractType of employmentContractTypes" [value]="employmentContractType">
-        {{employmentContractType}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <div class="info-container">
+    <div class="input-container">
+      <mat-label class="label">Darbo sutarties tipas</mat-label>
+      <mat-form-field class="input">
+        <mat-select formControlName="employmentContractType" required>
+          <mat-option *ngFor="let employmentContractType of employmentContractTypes" [value]="employmentContractType">
+            {{employmentContractType}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
 
-  <mat-label>Šeimyninė padėtis</mat-label>
-  <mat-form-field>
-    <mat-select formControlName="maritalStatus" required>
-      <mat-option *ngFor="let maritalStatus of maritalStatuses" [value]="maritalStatus">
-        {{maritalStatus}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <div class="input-container">
+      <mat-label class="label">Šeimyninė padėtis</mat-label>
+      <mat-form-field class="input">
+        <mat-select formControlName="maritalStatus" required>
+          <mat-option *ngFor="let maritalStatus of maritalStatuses" [value]="maritalStatus">
+            {{maritalStatus}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
 
   <h1>Kontaktiniai duomenys</h1>
-  <mat-label>Telefonas</mat-label>
-  <mat-form-field>
-    <input matInput name="phone" formControlName="phone" required>
-  </mat-form-field>
+  <div class="input-container">
+    <mat-label class="label">Telefonas</mat-label>
+    <mat-form-field class="input">
+      <input matInput name="phone" formControlName="phone" required>
+    </mat-form-field>
+  </div>
 </form>

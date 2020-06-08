@@ -1,0 +1,30 @@
+.label {
+  margin: 2px;
+  align-self: center;
+}
+
+.input {
+  margin: 2px;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  width: 20%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media only screen and (max-width: 320px) {
+  .input-container {
+    flex-direction: column;
+    width: auto;
+  }
+
+  .label {
+    align-self: flex-start;
+  }
+}
