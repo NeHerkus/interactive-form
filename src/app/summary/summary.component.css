@@ -1,0 +1,12 @@
+.summary-container {
+  display: flex;
+  flex-direction: row;
+  width: 25%;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 320px) {
+  .summary-container {
+    width: auto;
+  }
+}
