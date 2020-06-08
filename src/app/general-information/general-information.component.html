@@ -1,20 +1,32 @@
-<form [formGroup]="generalInformationForm">
-  <mat-label>Vardas</mat-label>
-  <mat-form-field>
-    <input matInput name="name" formControlName="name" required>
-    <mat-hint align="end">{{generalInformationForm.controls.name.value.length}} / {{MAXIMUM_NAME_LENGTH}}</mat-hint>
-  </mat-form-field>
+<div>
+  <form [formGroup]="generalInformationForm">
+    <div class="general-info-container">
+      <div class="input name">
+        <mat-label class="label">Vardas</mat-label>
+        <mat-form-field>
+          <input matInput name="name" formControlName="name" required>
+          <mat-hint align="end">{{generalInformationForm.controls.name.value.length}}
+            / {{MAXIMUM_NAME_LENGTH}}</mat-hint>
+        </mat-form-field>
+      </div>
 
-  <mat-label>Pavardė</mat-label>
-  <mat-form-field>
-    <input matInput name="last-name" formControlName="lastName" required>
-    <mat-hint
-      align="end">{{generalInformationForm.controls.lastName.value.length}} / {{MAXIMUM_LAST_NAME_LENGTH}}</mat-hint>
-  </mat-form-field>
+      <div class="input last-name">
+        <mat-label class="label">Pavardė</mat-label>
+        <mat-form-field>
+          <input matInput name="last-name" formControlName="lastName" required>
+          <mat-hint
+            align="end">{{generalInformationForm.controls.lastName.value.length}}
+            / {{MAXIMUM_LAST_NAME_LENGTH}}</mat-hint>
+        </mat-form-field>
+      </div>
 
-  <mat-label>Asmens kodas</mat-label>
-  <mat-form-field>
-    <input matInput name="pid" formControlName="pid" required>
-    <mat-hint align="end">{{generalInformationForm.controls.pid.value.length}} / {{PID_LENGTH}}</mat-hint>
-  </mat-form-field>
-</form>
+      <div class="input pid">
+        <mat-label class="label">Asmens kodas</mat-label>
+        <mat-form-field>
+          <input matInput name="pid" formControlName="pid" required>
+          <mat-hint align="end">{{generalInformationForm.controls.pid.value.length}} / {{PID_LENGTH}}</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {angularClassDecoratorKeys} from "codelyzer/util/utils";
+import {isNumber} from "util";
 
 @Component({
   selector: 'app-general-information',
@@ -11,6 +13,7 @@ export class GeneralInformationComponent implements OnInit {
   @Input() parentForm: FormGroup;
 
   generalInformationForm: FormGroup;
+  errorMessage = '';
 
   readonly MAXIMUM_NAME_LENGTH = 32;
   readonly MAXIMUM_LAST_NAME_LENGTH = 32;
@@ -33,4 +36,9 @@ export class GeneralInformationComponent implements OnInit {
       [Validators.maxLength(this.PID_LENGTH), Validators.minLength(this.PID_LENGTH), Validators.required]));
   }
 
+  validateGeneralInformation() {
+    if (isNaN(this.generalInformationForm.value.pid)) {
+      this.errorMessage = 'Asmesns kodas turi būti skaičius';
+    }
+  }
 }

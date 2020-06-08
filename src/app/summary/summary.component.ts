@@ -48,7 +48,7 @@ export class SummaryComponent implements OnInit, OnChanges {
   }
 
   filterShownData(columns: string[]) {
-    let shownPropertiesNames: string[] = [];
+    const shownPropertiesNames: string[] = [];
     for (const property of this.properties) {
       shownPropertiesNames.push(property.name);
     }

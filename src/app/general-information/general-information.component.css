@@ -1,0 +1,25 @@
+.general-info-container {
+  display: flex;
+  flex-direction: row;
+  //justify-content: center;
+}
+
+.input {
+  margin: 10px;
+}
+
+.label {
+  margin: 2px;
+}
+
+@media only screen and (max-width: 320px) {
+  .general-info-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input {
+    display: flex;
+    flex-direction: column;
+  }
+}

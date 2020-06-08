@@ -1,11 +1,12 @@
 <div class="form-container">
-  <mat-horizontal-stepper labelPosition="bottom" linear #stepper>
+  <mat-horizontal-stepper class="stepper" labelPosition="bottom" linear #stepper>
 
     <mat-step [stepControl]="generalInformationForm">
       <ng-template matStepLabel>Bendra informacija</ng-template>
       <app-general-information></app-general-information>
       <div>
-        <button mat-button matStepperNext>Kitas</button>
+        <button mat-button matStepperNext (click)="generalInformationComponent.validateGeneralInformation()">Kitas
+        </button>
       </div>
     </mat-step>
 
@@ -28,8 +29,8 @@
     </mat-step>
 
     <mat-step>
+      <ng-template matStepLabel>Santrauka</ng-template>
       <div *ngIf="applicationTO !== undefined">
-        <ng-template matStepLabel>Santrauka</ng-template>
         <app-summary [applicationData]="applicationTO"></app-summary>
         <div>
           <button mat-button matStepperPrevious>Atgal</button>
