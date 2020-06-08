@@ -1,33 +1,50 @@
 <form [formGroup]="loanApplicationForm">
-  <mat-label>Paskolos suma</mat-label>
-  <mat-slider
-    class="slider"
-    [max]="MAX_LOAN_AMOUNT"
-    [min]="MIN_LOAN_AMOUNT"
-    [thumbLabel]="THUMB_LABEL"
-    formControlName="loanAmount">
-  </mat-slider>
-  <mat-label>Paskolos terminas</mat-label>
-  <mat-slider
-    class="slider"
-    [max]="MAX_LOAN_DURATION"
-    [min]="MIN_LOAN_DURATION"
-    [thumbLabel]="THUMB_LABEL"
-    formControlName="loanDuration">
-  </mat-slider>
+  <div class="loan-application-container">
+    <div class="loan-container">
+      <div class="slider-container">
+        <div class="loan-amount-container">
+          <mat-label class="label">Paskolos suma</mat-label>
+          <mat-slider
+            class="slider"
+            [max]="MAX_LOAN_AMOUNT"
+            [min]="MIN_LOAN_AMOUNT"
+            [thumbLabel]="THUMB_LABEL"
+            formControlName="loanAmount">
+          </mat-slider>
+        </div>
 
-  <mat-label>Paskolos ir palūkanų mokėjimo diena</mat-label>
-  <mat-form-field>
-    <mat-select formControlName="paymentDay" required>
-      <mat-option *ngFor="let paymentDay of paymentDays" [value]="paymentDay">
-        {{paymentDay}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+        <div class="loan-duration-container">
+          <mat-label class="label">Paskolos terminas</mat-label>
+          <mat-slider
+            class="slider"
+            [max]="MAX_LOAN_DURATION"
+            [min]="MIN_LOAN_DURATION"
+            [thumbLabel]="THUMB_LABEL"
+            formControlName="loanDuration">
+          </mat-slider>
+        </div>
+      </div>
 
-  <h2>Pajamos ir įsipareigojimai</h2>
-  <mat-label>Mėnesinis atlyginimas atskaičius mokesčius</mat-label>
-  <mat-form-field>
-    <input matInput name="net-salary" formControlName="netSalary" required>
-  </mat-form-field>
+      <div>
+        <mat-label class="label">Paskolos ir palūkanų mokėjimo diena</mat-label>
+        <mat-form-field class="input">
+          <mat-select formControlName="paymentDay" required>
+            <mat-option *ngFor="let paymentDay of paymentDays" [value]="paymentDay">
+              {{paymentDay}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="salary-container">
+      <h2>Pajamos ir įsipareigojimai</h2>
+      <div class="salary-input-container">
+        <mat-label class="label">Mėnesinis atlyginimas atskaičius mokesčius</mat-label>
+        <mat-form-field class="input">
+          <input matInput name="net-salary" formControlName="netSalary" required>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
 </form>

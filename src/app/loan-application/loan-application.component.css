@@ -1,0 +1,87 @@
+.loan-application-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.loan-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.label-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.slider-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.salary-container {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-slider {
+  width: 10%;
+}
+
+.label {
+  margin: 2px;
+  align-self: center;
+}
+
+.slider {
+  margin: 2px;
+  align-self: center;
+}
+
+.input {
+  margin: 2px;
+}
+
+.loan-amount-container {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.loan-duration-container {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+@media only screen and (max-width: 320px) {
+  .slider-container {
+  }
+
+  .loan-amount-container {
+    flex-direction: column;
+  }
+
+  .loan-duration-container {
+    flex-direction: column;
+  }
+
+  .label {
+    align-self: flex-start;
+  }
+
+  mat-slider {
+    width: 60%;
+  }
+
+  .salary-input-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
