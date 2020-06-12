@@ -12,7 +12,6 @@ export class SummaryComponent implements OnInit, OnChanges {
   properties: Property[] = [
     {name: 'loanAmount', description: 'Paskolos suma'},
     {name: 'loanDuration', description: 'Paskolos terminas'},
-    {name: 'paymentDay', description: 'Paskolos terminas'},
     {name: 'netSalary', description: 'Mėnesinis atlyginimas atskaičius mokesčius'},
     {name: 'phone', description: 'Telefonas'}
   ];
