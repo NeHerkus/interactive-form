@@ -8,8 +8,8 @@ Angular reactive form project
 - You should be able to come back to the previous step. :heavy_check_mark:
 - At least one question should depend on the answer to a previous question. :question:
 - Some kind of error messages should be shown. :x:
-- The summary should contain the answers to all the questions. :x:
-- The design must be responsive. :x:
+- The summary should contain the answers to all the questions. :heavy_check_mark:
+- The design must be responsive. :heavy_check_mark:
 
 ## Launching
 - In project root folder run ```npm install```
