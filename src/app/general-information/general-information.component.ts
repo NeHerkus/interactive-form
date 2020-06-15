@@ -1,7 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {angularClassDecoratorKeys} from "codelyzer/util/utils";
-import {isNumber} from "util";
 
 @Component({
   selector: 'app-general-information',
@@ -23,17 +21,11 @@ export class GeneralInformationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.generalInformationForm = this.formBuilder.group({});
-    this.initGeneralInformationControls();
-  }
-
-  initGeneralInformationControls() {
-    this.generalInformationForm.addControl('name', this.formBuilder.control('',
-      [Validators.maxLength(this.MAXIMUM_NAME_LENGTH), Validators.required]));
-    this.generalInformationForm.addControl('lastName', this.formBuilder.control('',
-      [Validators.maxLength(this.MAXIMUM_LAST_NAME_LENGTH), Validators.required]));
-    this.generalInformationForm.addControl('pid', this.formBuilder.control('',
-      [Validators.maxLength(this.PID_LENGTH), Validators.minLength(this.PID_LENGTH), Validators.required]));
+    this.generalInformationForm = this.formBuilder.group({
+      name: ['', [Validators.required, Validators.maxLength(this.MAXIMUM_NAME_LENGTH)]],
+      lastName: ['', [Validators.required, Validators.maxLength(this.MAXIMUM_LAST_NAME_LENGTH)]],
+      pid: ['', [Validators.required, Validators.maxLength(this.PID_LENGTH), Validators.minLength(this.PID_LENGTH)]]
+    });
   }
 
   validateGeneralInformation() {

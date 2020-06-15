@@ -25,13 +25,8 @@ export class LoanApplicationComponent implements OnInit {
     this.loanApplicationForm = this.formBuilder.group({
       loanAmount: [500, [Validators.required]],
       loanDuration: [6, [Validators.required]],
-      paymentDay: ['', [Validators.required]]
+      paymentDay: ['', [Validators.required]],
+      netSalary: ['', [Validators.required]]
     });
-    this.initLoanApplicationControls();
-  }
-
-  initLoanApplicationControls() {
-    this.loanApplicationForm.addControl('netSalary', this.formBuilder.control('',
-      [Validators.required]));
   }
 }

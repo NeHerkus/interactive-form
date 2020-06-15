@@ -32,24 +32,14 @@ export class AdditionalInformationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.additionalInformationForm = this.formBuilder.group({});
-    this.initAdditionalInformationControls();
-  }
-
-  initAdditionalInformationControls() {
-    this.additionalInformationForm.addControl('education', this.formBuilder.control('',
-      [Validators.required]));
-    this.additionalInformationForm.addControl('position', this.formBuilder.control('',
-      [Validators.required]));
-    this.additionalInformationForm.addControl('field', this.formBuilder.control('',
-      [Validators.required]));
-    this.additionalInformationForm.addControl('employmentDuration', this.formBuilder.control('',
-      [Validators.required]));
-    this.additionalInformationForm.addControl('employmentContractType', this.formBuilder.control('',
-      [Validators.required]));
-    this.additionalInformationForm.addControl('maritalStatus', this.formBuilder.control('',
-      [Validators.required]));
-    this.additionalInformationForm.addControl('phone', this.formBuilder.control('',
-      [Validators.required]));
+    this.additionalInformationForm = this.formBuilder.group({
+      education: ['', Validators.required],
+      position: ['', Validators.required],
+      field: ['', Validators.required],
+      employmentDuration: ['', Validators.required],
+      employmentContractType: ['', Validators.required],
+      maritalStatus: ['', Validators.required],
+      phone: ['', Validators.required]
+    });
   }
 }
