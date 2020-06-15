@@ -18,6 +18,7 @@ import {MatTableModule} from '@angular/material/table';
 import {LoanApplicationComponent} from './loan-application/loan-application.component';
 import {IntroPageComponent} from './intro-page/intro-page.component';
 import {SummaryComponent} from './summary/summary.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {SummaryComponent} from './summary/summary.component';
     ReactiveFormsModule,
     MatSelectModule,
     MatTableModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -17,6 +17,10 @@ export class LoanApplicationComponent implements OnInit {
   readonly MAX_LOAN_DURATION = 60;
   readonly MIN_LOAN_DURATION = 6;
   readonly THUMB_LABEL = true;
+  readonly FORM_INVALID_MSG = 'Neužpildyti visi privalomi laukai';
+  readonly SALARY_NAN_MSG = 'Atlyginimas turi būti skaičius';
+
+  errorMessage = '';
 
   constructor(private formBuilder: FormBuilder) {
   }
@@ -28,5 +32,22 @@ export class LoanApplicationComponent implements OnInit {
       paymentDay: ['', [Validators.required]],
       netSalary: ['', [Validators.required]]
     });
+
+    this.onChanges();
+  }
+
+  onChanges() {
+    this.loanApplicationForm.valueChanges.subscribe(() => {
+      this.errorMessage = '';
+    });
+  }
+
+  validateLoanInformation() {
+    if (!this.loanApplicationForm.valid) {
+      this.errorMessage = this.FORM_INVALID_MSG;
+    }
+    if (isNaN(this.loanApplicationForm.value.netSalary)) {
+      this.errorMessage = this.SALARY_NAN_MSG;
+    }
   }
 }

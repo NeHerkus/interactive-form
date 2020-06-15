@@ -4,6 +4,7 @@ import {FormGroupDirective} from '@angular/forms';
 import {AdditionalInformationComponent} from '../additional-information/additional-information.component';
 import {LoanApplicationComponent} from '../loan-application/loan-application.component';
 import {Application} from '../shared/application';
+import {MatStepper} from '@angular/material/stepper';
 
 @Component({
   selector: 'app-form',
@@ -20,11 +21,16 @@ export class FormComponent implements OnInit {
   @Output() sendData: EventEmitter<any> = new EventEmitter();
 
   applicationTO: Application;
+  private stepper: MatStepper;
 
   constructor() {
   }
 
   ngOnInit(): void {
+  }
+
+  saveStepper(stepper: MatStepper) {
+    this.stepper = stepper;
   }
 
   get generalInformationForm() {
@@ -50,5 +56,41 @@ export class FormComponent implements OnInit {
       this.loanApplicationComponent.loanApplicationForm.value,
       this.additionalInformationComponent.additionalInformationForm.value);
     this.sendData.emit(this.applicationTO);
+  }
+
+  validateGeneralInformation() {
+    this.generalInformationComponent.validateGeneralInformation();
+    if (this.generalInformationComponent.errorMessage === ''
+      && this.generalInformationComponent.generalInformationForm.valid) {
+      this.goForward();
+    }
+  }
+
+  validateLoanInformation() {
+    this.loanApplicationComponent.validateLoanInformation();
+    if (this.loanApplicationComponent.errorMessage === ''
+      && this.loanApplicationComponent.loanApplicationForm.valid) {
+      this.goForward();
+    }
+  }
+
+  validateAdditionalInformation() {
+    this.additionalInformationComponent.validateAdditionalInformation();
+    if (this.additionalInformationComponent.errorMessage === ''
+    && this.additionalInformationComponent.additionalInformationForm.valid) {
+      this.goForward();
+    }
+  }
+
+  goForward() {
+    this.stepper.selected.completed = true;
+    this.stepper.next();
+  }
+
+  goBack() {
+    const stepper = this.stepper;
+    const index = stepper.selectedIndex;
+    stepper.previous();
+    stepper._steps.toArray()[index].interacted = false;
   }
 }

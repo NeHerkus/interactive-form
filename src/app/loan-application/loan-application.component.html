@@ -42,9 +42,12 @@
       <div class="salary-input-container">
         <mat-label class="label">Mėnesinis atlyginimas atskaičius mokesčius</mat-label>
         <mat-form-field class="input">
-          <input matInput name="net-salary" type="number" formControlName="netSalary" required>
+          <input matInput name="net-salary" formControlName="netSalary" required>
         </mat-form-field>
       </div>
     </div>
   </div>
+  <mat-toolbar class="error-message" *ngIf="errorMessage" color="warn">
+    <p>{{errorMessage}}</p>
+  </mat-toolbar>
 </form>

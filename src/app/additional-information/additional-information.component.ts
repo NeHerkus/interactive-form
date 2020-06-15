@@ -19,6 +19,10 @@ export class AdditionalInformationComponent implements OnInit {
   @Input() parentForm: FormGroup;
 
   additionalInformationForm: FormGroup;
+  errorMessage = '';
+
+  readonly FORM_INVALID_MSG = 'Neužpildyti visi privalomi laukai';
+  readonly PHONE_NAN_MSG = 'Telefonas turi būti skaičius';
 
   educations = Object.keys(ApplicantEducation).map(key => ApplicantEducation[key as any]);
   positions = Object.keys(ApplicantPosition).map(key => ApplicantPosition[key as any]);
@@ -41,5 +45,22 @@ export class AdditionalInformationComponent implements OnInit {
       maritalStatus: ['', Validators.required],
       phone: ['', Validators.required]
     });
+
+    this.onChanges();
+  }
+
+  onChanges() {
+    this.additionalInformationForm.valueChanges.subscribe(() => {
+      this.errorMessage = '';
+    });
+  }
+
+  validateAdditionalInformation() {
+    if (!this.additionalInformationForm.valid) {
+      this.errorMessage = this.FORM_INVALID_MSG;
+    }
+    if (isNaN(this.additionalInformationForm.value.phone)) {
+      this.errorMessage = this.PHONE_NAN_MSG;
+    }
   }
 }

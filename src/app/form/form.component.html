@@ -5,7 +5,7 @@
       <ng-template matStepLabel>Bendra informacija</ng-template>
       <app-general-information></app-general-information>
       <div>
-        <button mat-raised-button color="primary" matStepperNext (click)="generalInformationComponent.validateGeneralInformation()">Kitas
+        <button mat-raised-button color="primary" (click)="saveStepper(stepper); validateGeneralInformation()">Kitas
         </button>
       </div>
     </mat-step>
@@ -14,8 +14,8 @@
       <ng-template matStepLabel>Paraiška</ng-template>
       <app-loan-application></app-loan-application>
       <div>
-        <button mat-raised-button color="primary" matStepperPrevious>Atgal</button>
-        <button mat-raised-button color="primary" matStepperNext>Kitas</button>
+        <button mat-raised-button color="primary" (click)="goBack()">Atgal</button>
+        <button mat-raised-button color="primary" (click)="validateLoanInformation()">Kitas</button>
       </div>
     </mat-step>
 
@@ -23,8 +23,10 @@
       <ng-template matStepLabel>Papildoma informacija</ng-template>
       <app-additional-information></app-additional-information>
       <div>
-        <button mat-raised-button color="primary" matStepperPrevious>Atgal</button>
-        <button mat-raised-button color="primary" matStepperNext (click)="buildApplicationTO()">Kitas</button>
+        <button mat-raised-button color="primary" (click)="goBack()">Atgal</button>
+        <button mat-raised-button color="primary" (click)="validateAdditionalInformation(); buildApplicationTO()">
+          Kitas
+        </button>
       </div>
     </mat-step>
 

@@ -75,7 +75,10 @@
   <div class="input-container">
     <mat-label class="label">Telefonas</mat-label>
     <mat-form-field class="input">
-      <input matInput name="phone" formControlName="phone" type="number" required>
+      <input matInput name="phone" formControlName="phone" required>
     </mat-form-field>
   </div>
+  <mat-toolbar class="error-message" *ngIf="errorMessage" color="warn">
+    <p>{{errorMessage}}</p>
+  </mat-toolbar>
 </form>
